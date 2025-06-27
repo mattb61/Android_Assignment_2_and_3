@@ -1,0 +1,5 @@
+[
+  {"title":  "The Lord of the Rings: The Fellowship of the Ring", "year":  2001, "actors":  ["Viggo", "Sean", "Sir Ian", "Elijah"], "image":  "FotR"},
+  {"title":  "The Lord of the Rings: The Two Towers", "year":  2002, "actors":  ["Viggo", "Orlando", "Sir Ian", "Elijah"], "image":  "TTT"},
+  {"title":  "The Lord of the Rings: The Return of the King", "year":  2003, "actors":  ["Viggo", "Orlando", "Sir Ian", "Elijah"], "image":  "TRotK"}
+]
