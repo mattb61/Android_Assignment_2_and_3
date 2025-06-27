@@ -1,21 +1,21 @@
-import {Text, TextButton, Button} from 'react-native';
+import {Text, TextInput, Button} from 'react-native';
 import {useState} from 'react';
 import {Picker} from '@react-native-picker/picker';
 
 import {useContext} from 'react';
-import {MovieContext} from './movieContext.jsx';
+import {MovieContext} from './components/movieContext';
 
 
 export default function UpdateMovies() {
 
     const [currentMovie, setCurrentMovie] = useState(0);
 
-    const [movieData, setMovieData] = useContext(MovieContext);
+    const {movieData, setMovieData} = useContext(MovieContext);
 
-    const [title, setTitle] = useState(movieData[currentMovie].title);
-    const [year, setYear] = useState(movieData[currentMovie].year);
+    const [title, setTitle] = useState(movieData[currentMovie].title)
+    const [year, setYear] = useState(movieData[currentMovie].year)
     const [actors, setActors] = useState(movieData[currentMovie].actors);
-    const [poster, setPoster] = useState(movieData[currentMovie].image);
+    const [poster, setPoster] = useState(movieData[currentMovie].image)
 
     const changeYear = (value) => {
         const updatedYear = parseInt(value);
@@ -23,8 +23,8 @@ export default function UpdateMovies() {
     }
 
     const changeActors = (value) => {
-        const updatedArray = value.split(",");
-        setActors(updatedArray);
+        const updatedArray = value.split(", ");
+        setActors(updatedArray)
     }
 
     const updateMovieData = () => {
@@ -41,11 +41,11 @@ export default function UpdateMovies() {
     }
 
     const changeMovieIndex = (value) => {
-        const index = parseInt(value);
+        const index = parseInt(value)
         setTitle(movieData[index].title);
         setActors(movieData[index].actors);
-        setYear(movieData[index].year);
-        setCurrentMovie(index);
+        setYear(movieData[index].year)
+        setCurrentMovie(index)
     }
 
     return (
@@ -56,9 +56,9 @@ export default function UpdateMovies() {
                   onValueChange={(itemValue, itemIndex) =>
                     changeMovieIndex(itemIndex)
                   }>
-                  <Picker.Item label="Movie 1" value="m1" />
-                  <Picker.Item label="Movie 2" value="m2" />
-                  <Picker.Item label="Movie 3" value="m3" />
+                  <Picker.Item label="The Fellowship of the Ring" value="m1" />
+                  <Picker.Item label="The Two Towers" value="m2" />
+                  <Picker.Item label="The Return of the King" value="m3" />
                 </Picker>
 
                 <Text>Title</Text>
@@ -76,10 +76,9 @@ export default function UpdateMovies() {
                   onValueChange={(itemValue, itemIndex) =>
                     setPoster(itemValue)
                   }>
-                  <Picker.Item label="Terminator 2 #1" value="t2" />
-                  <Picker.Item label="Terminator 2 #2" value="t2_2nd" />
-                  <Picker.Item label="Titanic #1" value="titanic" />
-                  <Picker.Item label="Happy #1" value="happy" />
+                  <Picker.Item label="The Fellowship of the Ring" value="FotR" />
+                  <Picker.Item label="The Two Towers" value="TTT" />
+                  <Picker.Item label="The Return of the King" value="TRotK" />
                 </Picker>
                 <Button title="Update" onPress={updateMovieData} />
 

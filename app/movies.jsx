@@ -2,18 +2,22 @@ import {Pressable, Text, View, Button, StyleSheet} from "react-native";
 import {useState} from "react";
 import Movie from "./components/Movie.jsx";
 import {useRouter} from 'expo-router';
+import {MovieContext} from './components/movieContext';
+import {useContext} from 'react';
 
 const FotR = require("../assets/images/FotR.jpg");
 const TTT = require("../assets/images/TTT.jpg");
 const TRotK = require("../assets/images/TRotK.jpg");
 
 const images = {"FotR": FotR, "TTT": TTT, "TRotK": TRotK};
-// <Button onPress={() => router.navigate('/movies')} title="Movies"></Button>
 
 import movieData from "../assets/movies.json";
 console.log(movieData);
 
 export default function Index() {
+
+  const router = useRouter();
+  const {movieData} = useContext(MovieContext);
 
   const [movieIndex, setMovieIndex] = useState(0);
 
@@ -45,14 +49,10 @@ export default function Index() {
             </Text>
           </Pressable>
         ))}
-
+        <Button onPress={() => router.navigate('/')} title="Home"></Button>
       </View>
     </View>
   );
-//     const router = useRouter();
-//   return (
-//
-//   );
 }
 
 const styles = StyleSheet.create({
